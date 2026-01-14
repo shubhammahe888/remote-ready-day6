@@ -4,684 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 6: Interview Mastery - Remote Ready in 7 Days</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 3px solid #3B82F6;
-        }
-
-        .series-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #2d3748;
-            margin: 20px 0;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: #3B82F6;
-            font-weight: 600;
-            margin: 15px 0;
-        }
-
-        .intro {
-            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border-left: 5px solid #3B82F6;
-        }
-
-        .intro h2 {
-            color: #3B82F6;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .intro p {
-            font-size: 1.1rem;
-            color: #4a5568;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.95;
-        }
-
-        .problem-section {
-            background: #fff5f5;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0;
-            border-left: 5px solid #f56565;
-        }
-
-        .problem-section h2 {
-            color: #c53030;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .problem-item {
-            margin: 20px 0;
-            padding-left: 20px;
-        }
-
-        .problem-item h3 {
-            color: #742a2a;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .problem-text {
-            color: #4a5568;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .solution-section {
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0;
-            border-left: 5px solid #10b981;
-        }
-
-        .solution-section h2 {
-            color: #065f46;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .solution-section p {
-            color: #1e3a28;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .deliverables-section {
-            margin: 50px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: #718096;
-        }
-
-        .deliverable-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .deliverable-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(180deg, #3B82F6 0%, #8B5CF6 100%);
-        }
-
-        .deliverable-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-            border-color: #3B82F6;
-        }
-
-        .deliverable-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .deliverable-title {
-            font-size: 1.4rem;
-            color: #2d3748;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .deliverable-emoji {
-            font-size: 2rem;
-            margin-right: 10px;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
-        }
-
-        .features-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .features-list li {
-            padding: 8px 0;
-            padding-left: 30px;
-            position: relative;
-            color: #4a5568;
-            font-size: 1.05rem;
-        }
-
-        .features-list li::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-
-        .mistake-section {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0;
-            border-left: 5px solid #ef4444;
-        }
-
-        .mistake-section h2 {
-            color: #991b1b;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .mistake-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 15px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .mistake-item h3 {
-            color: #dc2626;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-            color: white;
-            padding: 50px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .series-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 40px 0;
-        }
-
-        .nav-btn {
-            padding: 12px 25px;
-            background: #e2e8f0;
-            color: #2d3748;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: #3B82F6;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .nav-btn.active {
-            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-            color: white;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #e2e8f0;
-            color: #718096;
-        }
-
-        .social-links {
-            margin: 20px 0;
-        }
-
-        .social-links a {
-            color: #3B82F6;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #8B5CF6;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .deliverable-header {
-                flex-direction: column;
-            }
-
-            .download-btn {
-                width: 100%;
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
+    <style>* {margin: 0;padding: 0;box-sizing: border-box;}body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);color: #333;line-height: 1.6;padding: 20px;}.container {max-width: 1200px;margin: 0 auto;background: white;border-radius: 20px;padding: 40px;box-shadow: 0 20px 60px rgba(0,0,0,0.3);}header {text-align: center;margin-bottom: 40px;padding-bottom: 30px;border-bottom: 3px solid #3B82F6;}.series-badge {display: inline-block;background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);color: white;padding: 8px 20px;border-radius: 25px;font-size: 0.9rem;font-weight: 600;margin-bottom: 15px;letter-spacing: 1px;}h1 {font-size: 2.5rem;color: #2d3748;margin: 20px 0;line-height: 1.2;}.subtitle {font-size: 1.3rem;color: #3B82F6;font-weight: 600;margin: 15px 0;}.intro {background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);padding: 30px;border-radius: 15px;margin: 30px 0;border-left: 5px solid #3B82F6;}.intro h2 {color: #3B82F6;margin-bottom: 15px;font-size: 1.5rem;}.intro p {font-size: 1.1rem;color: #4a5568;line-height: 1.8;margin-bottom: 10px;}.stats-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));gap: 20px;margin: 40px 0;}.stat-card {background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);padding: 25px;border-radius: 15px;text-align: center;color: white;box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);transition: transform 0.3s ease;}.stat-card:hover {transform: translateY(-5px);}.stat-number {font-size: 2.5rem;font-weight: bold;display: block;margin-bottom: 10px;}.stat-label {font-size: 1rem;opacity: 0.95;}.problem-section {background: #fff5f5;padding: 30px;border-radius: 15px;margin: 40px 0;border-left: 5px solid #f56565;}.problem-section h2 {color: #c53030;margin-bottom: 20px;font-size: 1.8rem;}.problem-item {margin: 20px 0;padding-left: 20px;}.problem-item h3 {color: #742a2a;font-size: 1.2rem;margin-bottom: 10px;}.problem-text {color: #4a5568;font-size: 1.05rem;line-height: 1.7;}.solution-section {background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);padding: 30px;border-radius: 15px;margin: 40px 0;border-left: 5px solid #10b981;}.solution-section h2 {color: #065f46;margin-bottom: 20px;font-size: 1.8rem;}.solution-section p {color: #1e3a28;font-size: 1.1rem;line-height: 1.8;margin-bottom: 15px;}.deliverables-section {margin: 50px 0;}.section-header {text-align: center;margin-bottom: 40px;}.section-header h2 {font-size: 2rem;color: #2d3748;margin-bottom: 10px;}.section-header p {font-size: 1.1rem;color: #718096;}.deliverable-card {background: white;border: 2px solid #e2e8f0;border-radius: 15px;padding: 30px;margin-bottom: 25px;transition: all 0.3s ease;position: relative;overflow: hidden;}.deliverable-card::before {content: '';position: absolute;top: 0;left: 0;width: 5px;height: 100%;background: linear-gradient(180deg, #3B82F6 0%, #8B5CF6 100%);}.deliverable-card:hover {transform: translateX(5px);box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);border-color: #3B82F6;}.deliverable-header {display: flex;justify-content: space-between;align-items: flex-start;margin-bottom: 20px;flex-wrap: wrap;}.deliverable-title {font-size: 1.4rem;color: #2d3748;font-weight: 600;margin-bottom: 10px;}.deliverable-emoji {font-size: 2rem;margin-right: 10px;}.download-btn {display: inline-block;background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);color: white;padding: 12px 30px;text-decoration: none;border-radius: 25px;font-weight: 600;transition: all 0.3s ease;box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);}.download-btn:hover {transform: translateY(-2px);box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);}.features-list {list-style: none;margin-top: 15px;}.features-list li {padding: 8px 0;padding-left: 30px;position: relative;color: #4a5568;font-size: 1.05rem;}.features-list li::before {content: '✅';position: absolute;left: 0;font-size: 1.2rem;}.mistake-section {background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);padding: 30px;border-radius: 15px;margin: 40px 0;border-left: 5px solid #ef4444;}.mistake-section h2 {color: #991b1b;margin-bottom: 20px;font-size: 1.8rem;}.mistake-item {background: white;padding: 20px;border-radius: 10px;margin: 15px 0;box-shadow: 0 2px 8px rgba(0,0,0,0.1);}.mistake-item h3 {color: #dc2626;font-size: 1.1rem;margin-bottom: 8px;}.cta-section {background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);color: white;padding: 50px;border-radius: 20px;text-align: center;margin: 50px 0;}.cta-section h2 {font-size: 2rem;margin-bottom: 20px;}.cta-section p {font-size: 1.2rem;margin-bottom: 30px;opacity: 0.95;}.series-nav {display: flex;justify-content: center;gap: 15px;flex-wrap: wrap;margin: 40px 0;}.nav-btn {padding: 12px 25px;background: #e2e8f0;color: #2d3748;text-decoration: none;border-radius: 10px;font-weight: 600;transition: all 0.3s ease;}.nav-btn:hover {background: #3B82F6;color: white;transform: translateY(-2px);}.nav-btn.active {background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);color: white;}footer {text-align: center;margin-top: 50px;padding-top: 30px;border-top: 2px solid #e2e8f0;color: #718096;}.social-links {margin: 20px 0;}.social-links a {color: #3B82F6;text-decoration: none;margin: 0 15px;font-weight: 600;transition: color 0.3s ease;}.social-links a:hover {color: #8B5CF6;}@media (max-width: 768px) {.container {padding: 20px;}h1 {font-size: 1.8rem;}.subtitle {font-size: 1.1rem;}.stats-grid {grid-template-columns: 1fr;}.deliverable-header {flex-direction: column;}.download-btn {width: 100%;text-align: center;margin-top: 15px;}}</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="series-badge">REMOTE READY IN 7 DAYS</div>
-            <h1>🎥 Day 6: Interview Mastery</h1>
-            <p class="subtitle">You're 1 Interview Away From Your Dream Job. Don't Blow It.</p>
-        </header>
-
-        <div class="intro">
-            <h2>The Interview Reality Check</h2>
-            <p><strong>You've done the hard work:</strong> Perfected your resume, optimized LinkedIn, applied strategically, and now you finally got the interview invite.</p>
-            <p><strong>But here's the brutal truth:</strong> 30% of candidates fail interviews due to technical issues before they even answer a single question. Your audio cuts out, camera freezes, or internet dies. Interview over. Opportunity lost.</p>
-            <p><strong>And for those who pass the tech test?</strong> Most fail because they ramble without structure, can't answer "Tell me about a time when..." questions, or forget to follow up.</p>
-        </div>
-
-        <div class="stats-grid">
-            <div class="stat-card">
-                <span class="stat-number">65%</span>
-                <span class="stat-label">Of Interviews Are Now Video/Remote</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number">30%</span>
-                <span class="stat-label">Fail Due to Technical Issues</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number">7 sec</span>
-                <span class="stat-label">To Make First Impression</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number">92%</span>
-                <span class="stat-label">Companies Use Behavioral Questions</span>
-            </div>
-        </div>
-
-        <div class="problem-section">
-            <h2>🚨 Why Most People Bomb Interviews</h2>
-            
-            <div class="problem-item">
-                <h3>Problem #1: Technical Disasters</h3>
-                <p class="problem-text">You join the Zoom call and... your camera isn't working. Or your mic has echo. Or your internet is too slow. The interviewer is frustrated before you even start. You look unprepared and unprofessional, regardless of your actual qualifications.</p>
-            </div>
-
-            <div class="problem-item">
-                <h3>Problem #2: Rambling Without Structure</h3>
-                <p class="problem-text">"Tell me about a time you faced a challenge." You start talking... and talking... and talking. 5 minutes later, the interviewer is lost, you've forgotten the question, and you never actually got to the result. No structure = no impact.</p>
-            </div>
-
-            <div class="problem-item">
-                <h3>Problem #3: Unprepared for Common Questions</h3>
-                <p class="problem-text">"Why do you want to work remotely?" You freeze. "Um... I like... flexibility?" You sound unprepared. Every interview has 10-15 predictable questions. Not having answers ready is interview suicide.</p>
-            </div>
-
-            <div class="problem-item">
-                <h3>Problem #4: Terrible Setup</h3>
-                <p class="problem-text">Your camera is angled up your nose. There's a messy bed behind you. The lighting makes you look like a shadow. Your dog is barking. Virtual interviews require a professional setup—most people ignore this.</p>
-            </div>
-
-            <div class="problem-item">
-                <h3>Problem #5: No Follow-Up</h3>
-                <p class="problem-text">Interview ends. You wait. And wait. And hear nothing. Why? Because you didn't send a thank you email within 24 hours. The candidate who did just beat you for the job.</p>
-            </div>
-        </div>
-
-        <div class="solution-section">
-            <h2>✅ The Interview Mastery System</h2>
-            
-            <p><strong>The truth:</strong> Interviews are predictable. There are only ~30 common questions. There's a proven structure (STAR method) for answering behavioral questions. Technical setup can be perfected in 1 hour.</p>
-
-            <p><strong>This system gives you:</strong></p>
-            <ul style="margin-left: 20px; color: #1e3a28; font-size: 1.05rem; line-height: 1.8;">
-                <li><strong>Zero technical failures</strong> — Complete tech checklist ensures everything works</li>
-                <li><strong>Perfect answer structure</strong> — STAR method for every behavioral question</li>
-                <li><strong>30+ questions answered</strong> — Prepared responses for every common question</li>
-                <li><strong>Professional presence</strong> — Setup guide for camera, lighting, background</li>
-                <li><strong>Follow-up mastery</strong> — Email templates that keep you top of mind</li>
-                <li><strong>30-day prep plan</strong> — Day-by-day schedule from zero to interview-ready</li>
-            </ul>
-
-            <p style="margin-top: 20px;"><strong>Expected results:</strong> Pass phone screens 80% of the time (vs 30% without prep). Ace video interviews 60% of the time (vs 20%). Land offers in 30% of final rounds (vs 10%).</p>
-        </div>
-
-        <div class="mistake-section">
-            <h2>❌ Top 5 Interview Mistakes (And How to Avoid Them)</h2>
-            
-            <div class="mistake-item">
-                <h3>Mistake #1: Not Testing Tech Until 5 Minutes Before</h3>
-                <p>❌ <strong>Result:</strong> Scrambling to fix issues, joining late, looking unprepared</p>
-                <p>✅ <strong>Solution:</strong> Test everything 24 hours early AND 1 hour before (our checklist has 85+ items)</p>
-            </div>
-
-            <div class="mistake-item">
-                <h3>Mistake #2: Answering "Tell me about a time..." With No Structure</h3>
-                <p>❌ <strong>Result:</strong> Rambling, losing interviewer's attention, forgetting key points</p>
-                <p>✅ <strong>Solution:</strong> Use STAR method (Situation, Task, Action, Result) for every story</p>
-            </div>
-
-            <div class="mistake-item">
-                <h3>Mistake #3: Treating Remote Interviews Casually</h3>
-                <p>❌ <strong>Result:</strong> Looking unprofessional, distracting background, poor lighting</p>
-                <p>✅ <strong>Solution:</strong> Professional setup (camera at eye level, neutral background, good lighting)</p>
-            </div>
-
-            <div class="mistake-item">
-                <h3>Mistake #4: Having Zero Examples Ready</h3>
-                <p>❌ <strong>Result:</strong> Freezing when asked behavioral questions, giving generic answers</p>
-                <p>✅ <strong>Solution:</strong> Prepare 7 STAR stories in advance (covers 90% of questions)</p>
-            </div>
-
-            <div class="mistake-item">
-                <h3>Mistake #5: Not Following Up After Interview</h3>
-                <p>❌ <strong>Result:</strong> Forgotten by hiring manager, losing to candidates who did follow up</p>
-                <p>✅ <strong>Solution:</strong> Thank you email within 24 hours (our templates make it easy)</p>
-            </div>
-        </div>
-
-        <div class="deliverables-section">
-            <div class="section-header">
-                <h2>📦 Your Complete Interview Prep System</h2>
-                <p>6 Actionable Tools to Ace Any Remote Interview</p>
-            </div>
-
-            <div class="deliverable-card">
-                <div class="deliverable-header">
-                    <div>
-                        <h3 class="deliverable-title">
-                            <span class="deliverable-emoji">✅</span>
-                            Technical Setup Checklist
-                        </h3>
-                    </div>
-                    <a href="https://docs.google.com/document/d/1-MMYJpshPSgmeC_dUH3NNkakjMGX90Xa1L48y2nF52o/edit" class="download-btn" target="_blank">Open Checklist →</a>
-                </div>
-                <ul class="features-list">
-                    <li><strong>24-Hour Before:</strong> Internet, camera, mic, lighting, background tests (50+ items)</li>
-                    <li><strong>1-Hour Before:</strong> Final tech test, environment prep, materials ready</li>
-                    <li><strong>During Interview:</strong> Video/audio etiquette, professionalism, troubleshooting</li>
-                    <li><strong>85+ Interactive Checkboxes:</strong> Check off as you complete each item</li>
-                    <li><strong>Platform Guides:</strong> Specific instructions for Zoom, Teams, Google Meet</li>
-                    <li><strong>Common Mistakes:</strong> What goes wrong and how to prevent it</li>
-                    <li><strong>Quick Reference:</strong> Print-friendly for last-minute review</li>
-                </ul>
-            </div>
-
-            <div class="deliverable-card">
-                <div class="deliverable-header">
-                    <div>
-                        <h3 class="deliverable-title">
-                            <span class="deliverable-emoji">⭐</span>
-                            STAR Method Answer Templates
-                        </h3>
-                    </div>
-                    <a href="https://docs.google.com/document/d/114QfLfwZDGwl3fLFflhY28hbKt1xPvc__ZX01dBE-T4/edit" class="download-btn" target="_blank">Open Templates →</a>
-                </div>
-                <ul class="features-list">
-                    <li><strong>Complete STAR Guide:</strong> Situation, Task, Action, Result breakdown (20/10/60/10%)</li>
-                    <li><strong>7 Fillable Story Templates:</strong> Leadership, Conflict, Problem-Solving, Failure, Achievement, Adaptability, Remote Work</li>
-                    <li><strong>Fill-in-the-Blank Format:</strong> Yellow-highlighted fields for your examples</li>
-                    <li><strong>Complete Example Story:</strong> Fully filled out to show exact format</li>
-                    <li><strong>Practice Guide:</strong> How to record yourself, get feedback, improve</li>
-                    <li><strong>Pro Tips:</strong> Focus on Action (60%), use "I" not "we", quantify results</li>
-                    <li><strong>Common Mistakes:</strong> What to avoid when using STAR method</li>
-                </ul>
-            </div>
-
-            <div class="deliverable-card">
-                <div class="deliverable-header">
-                    <div>
-                        <h3 class="deliverable-title">
-                            <span class="deliverable-emoji">❓</span>
-                            Common Interview Questions & Answers
-                        </h3>
-                    </div>
-                    <a href="https://docs.google.com/document/d/1dxsqdwqAE0q_FbK6E8xozYauyJHzRaNu7ol79z6hNKQ/edit" class="download-btn" target="_blank">Open Q&A Guide →</a>
-                </div>
-                <ul class="features-list">
-                    <li><strong>10 General Questions:</strong> Tell me about yourself, Why this job, Strengths, Weaknesses, etc.</li>
-                    <li><strong>10 Remote-Specific:</strong> Why remote, Productivity, Home office, Communication, Time management</li>
-                    <li><strong>10+ Behavioral Questions:</strong> Challenges, Conflicts, Leadership, Failure, with STAR references</li>
-                    <li><strong>Perfect Answer Frameworks:</strong> What to say for each question (100-150 words)</li>
-                    <li><strong>Real Examples:</strong> Actual answers that worked</li>
-                    <li><strong>"What NOT to Say":</strong> Common mistakes to avoid (highlighted in red)</li>
-                    <li><strong>Why Each Works:</strong> What interviewer is looking for</li>
-                </ul>
-            </div>
-
-            <div class="deliverable-card">
-                <div class="deliverable-header">
-                    <div>
-                        <h3 class="deliverable-title">
-                            <span class="deliverable-emoji">🎥</span>
-                            Virtual Interview Setup Guide
-                        </h3>
-                    </div>
-                    <a href="https://docs.google.com/document/d/1Og-e3ujc9-YwNB0V_YGmHDxww1cHGdNXMpTyt6fJWRU/edit" class="download-btn" target="_blank">Open Setup Guide →</a>
-                </div>
-                <ul class="features-list">
-                    <li><strong>Perfect Camera:</strong> Eye level, 2-3 feet away, straight on, head & shoulders visible</li>
-                    <li><strong>Perfect Lighting:</strong> Natural window light in front, ring light at 45°, avoid overhead only</li>
-                    <li><strong>Perfect Background:</strong> Plain wall, bookshelf, organized space—no clutter</li>
-                    <li><strong>Audio Checklist:</strong> Headphones with mic, no echo, quiet room</li>
-                    <li><strong>Complete Setup Diagram:</strong> Visual showing ideal home office layout</li>
-                    <li><strong>Before/After Examples:</strong> Good vs bad setups with explanations</li>
-                    <li><strong>Budget Options:</strong> How to look professional for under $50</li>
-                </ul>
-            </div>
-
-            <div class="deliverable-card">
-                <div class="deliverable-header">
-                    <div>
-                        <h3 class="deliverable-title">
-                            <span class="deliverable-emoji">✉️</span>
-                            Post-Interview Follow-Up Templates
-                        </h3>
-                    </div>
-                    <a href="https://docs.google.com/document/d/1IPFnsZIeeOaBeWUiB_M6sn60a9qWXVT4NzRFsWOt-Ac/edit" class="download-btn" target="_blank">Open Templates →</a>
-                </div>
-                <ul class="features-list">
-                    <li><strong>Template #1:</strong> Thank You after Phone/Video Screen (send within 24 hours)</li>
-                    <li><strong>Template #2:</strong> Thank You after Final Interview (send same day)</li>
-                    <li><strong>Template #3:</strong> Follow-Up if No Response (1 week after expected decision)</li>
-                    <li><strong>Template #4:</strong> Offer Acceptance (confirm details, express excitement)</li>
-                    <li><strong>Template #5:</strong> Offer Decline (gracious exit, keep door open)</li>
-                    <li><strong>Copy-Paste Ready:</strong> Fill in bracketed [fields], send immediately</li>
-                    <li><strong>Filled Examples:</strong> See exactly what each should look like</li>
-                </ul>
-            </div>
-
-            <div class="deliverable-card">
-                <div class="deliverable-header">
-                    <div>
-                        <h3 class="deliverable-title">
-                            <span class="deliverable-emoji">📅</span>
-                            30-Day Interview Prep Plan
-                        </h3>
-                    </div>
-                    <a href="https://docs.google.com/document/d/1v0ZALDajALGuEy8ReVJ13v-5uawMQtKDgL_7HUedYS0/edit" class="download-btn" target="_blank">Open Prep Plan →</a>
-                </div>
-                <ul class="features-list">
-                    <li><strong>Week 1 - Foundation:</strong> Technical setup, write STAR stories, study common questions</li>
-                    <li><strong>Week 2 - Practice:</strong> Record yourself, improve answers, practice body language</li>
-                    <li><strong>Week 3 - Polish:</strong> Refine stories, research interviewers, prepare smart questions</li>
-                    <li><strong>Week 4 - Final Prep:</strong> Final tech tests, review notes, mental preparation</li>
-                    <li><strong>Daily Tasks:</strong> Each day has specific tasks with checkboxes and time estimates</li>
-                    <li><strong>Interview Day Schedule:</strong> Minute-by-minute from 2 hours before to after</li>
-                    <li><strong>Quick Win Checklist:</strong> 10-point readiness assessment before interview</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2>🚀 Ready to Ace Your Next Interview?</h2>
-            <p>Stop leaving interviews to chance. Start preparing systematically.</p>
-            <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p style="font-size: 1.1rem; margin: 10px 0;"><strong>With This System:</strong></p>
-                <p style="font-size: 1.1rem; margin: 10px 0;">✅ Zero technical failures (complete checklist)</p>
-                <p style="font-size: 1.1rem; margin: 10px 0;">✅ Structured answers (STAR method for 7 stories)</p>
-                <p style="font-size: 1.1rem; margin: 10px 0;">✅ 30+ questions answered (perfect frameworks)</p>
-                <p style="font-size: 1.1rem; margin: 10px 0;">✅ Professional setup (look & sound great on video)</p>
-                <p style="font-size: 1.1rem; margin: 10px 0;">✅ Follow-up mastery (5 templates ready to send)</p>
-                <p style="font-size: 1.3rem; margin: 20px 0; font-weight: bold;">Result: Land offers 3x faster ✨</p>
-            </div>
-        </div>
-
-        <div class="series-nav">
-            <a href="https://shubhammahe888.github.io/remote-ready-day1/" class="nav-btn">Day 1: Resume</a>
-            <a href="https://shubhammahe888.github.io/remote-ready-day2/" class="nav-btn">Day 2: LinkedIn</a>
-            <a href="https://shubhammahe888.github.io/remote-ready-day3/" class="nav-btn">Day 3: Job Platforms</a>
-            <a href="https://shubhammahe888.github.io/remote-ready-day4/" class="nav-btn">Day 4: Skills Gap</a>
-            <a href="https://shubhammahe888.github.io/remote-ready-day5/" class="nav-btn">Day 5: Application Strategy</a>
-            <a href="#" class="nav-btn active">Day 6: Interview Mastery</a>
-            <a href="#" class="nav-btn">Day 7: Coming Soon</a>
-        </div>
-
-        <footer>
-            <h3>Made by ChillApply</h3>
-            <p>Helping job seekers land remote jobs faster with proven strategies and tools</p>
-            <div class="social-links">
-                <a href="https://instagram.com/chillapply" target="_blank">Instagram: @chillapply</a>
-                <a href="https://linkedin.com/company/chillapply" target="_blank">LinkedIn</a>
-            </div>
-            <p style="margin-top: 30px; font-size: 0.9rem;">Part of the Remote Ready in 7 Days Series | Day 6 of 7</p>
-        </footer>
-    </div>
+<div class="container">
+<header>
+<div class="series-badge">REMOTE READY IN 7 DAYS</div>
+<h1>🎥 Day 6: Interview Mastery</h1>
+<p class="subtitle">You're 1 Interview Away From Your Dream Job. Don't Blow It.</p>
+</header>
+<div class="intro">
+<h2>The Interview Reality Check</h2>
+<p><strong>You've done the hard work:</strong> Perfected your resume, optimized LinkedIn, applied strategically, and now you finally got the interview invite.</p>
+<p><strong>But here's the brutal truth:</strong> 30% of candidates fail interviews due to technical issues before they even answer a single question. Your audio cuts out, camera freezes, or internet dies. Interview over. Opportunity lost.</p>
+<p><strong>And for those who pass the tech test?</strong> Most fail because they ramble without structure, can't answer "Tell me about a time when..." questions, or forget to follow up.</p>
+</div>
+<div class="stats-grid">
+<div class="stat-card"><span class="stat-number">65%</span><span class="stat-label">Of Interviews Are Now Video/Remote</span></div>
+<div class="stat-card"><span class="stat-number">30%</span><span class="stat-label">Fail Due to Technical Issues</span></div>
+<div class="stat-card"><span class="stat-number">7 sec</span><span class="stat-label">To Make First Impression</span></div>
+<div class="stat-card"><span class="stat-number">92%</span><span class="stat-label">Companies Use Behavioral Questions</span></div>
+</div>
+<div class="problem-section">
+<h2>🚨 Why Most People Bomb Interviews</h2>
+<div class="problem-item"><h3>Problem #1: Technical Disasters</h3><p class="problem-text">You join the Zoom call and... your camera isn't working. Or your mic has echo. Or your internet is too slow. The interviewer is frustrated before you even start. You look unprepared and unprofessional, regardless of your actual qualifications.</p></div>
+<div class="problem-item"><h3>Problem #2: Rambling Without Structure</h3><p class="problem-text">"Tell me about a time you faced a challenge." You start talking... and talking... and talking. 5 minutes later, the interviewer is lost, you've forgotten the question, and you never actually got to the result. No structure = no impact.</p></div>
+<div class="problem-item"><h3>Problem #3: Unprepared for Common Questions</h3><p class="problem-text">"Why do you want to work remotely?" You freeze. "Um... I like... flexibility?" You sound unprepared. Every interview has 10-15 predictable questions. Not having answers ready is interview suicide.</p></div>
+<div class="problem-item"><h3>Problem #4: Terrible Setup</h3><p class="problem-text">Your camera is angled up your nose. There's a messy bed behind you. The lighting makes you look like a shadow. Your dog is barking. Virtual interviews require a professional setup—most people ignore this.</p></div>
+<div class="problem-item"><h3>Problem #5: No Follow-Up</h3><p class="problem-text">Interview ends. You wait. And wait. And hear nothing. Why? Because you didn't send a thank you email within 24 hours. The candidate who did just beat you for the job.</p></div>
+</div>
+<div class="solution-section">
+<h2>✅ The Interview Mastery System</h2>
+<p><strong>The truth:</strong> Interviews are predictable. There are only ~30 common questions. There's a proven structure (STAR method) for answering behavioral questions. Technical setup can be perfected in 1 hour.</p>
+<p><strong>This system gives you:</strong></p>
+<ul style="margin-left: 20px; color: #1e3a28; font-size: 1.05rem; line-height: 1.8;">
+<li><strong>Zero technical failures</strong> — Complete tech checklist ensures everything works</li>
+<li><strong>Perfect answer structure</strong> — STAR method for every behavioral question</li>
+<li><strong>30+ questions answered</strong> — Prepared responses for every common question</li>
+<li><strong>Professional presence</strong> — Setup guide for camera, lighting, background</li>
+<li><strong>Follow-up mastery</strong> — Email templates that keep you top of mind</li>
+<li><strong>30-day prep plan</strong> — Day-by-day schedule from zero to interview-ready</li>
+</ul>
+<p style="margin-top: 20px;"><strong>Expected results:</strong> Pass phone screens 80% of the time (vs 30% without prep). Ace video interviews 60% of the time (vs 20%). Land offers in 30% of final rounds (vs 10%).</p>
+</div>
+<div class="deliverables-section">
+<div class="section-header"><h2>📦 Your Complete Interview Prep System</h2><p>6 Actionable Tools to Ace Any Remote Interview</p></div>
+<div class="deliverable-card">
+<div class="deliverable-header"><div><h3 class="deliverable-title"><span class="deliverable-emoji">✅</span>Technical Setup Checklist</h3></div><a href="https://docs.google.com/document/d/1-MMYJpshPSgmeC_dUH3NNkakjMGX90Xa1L48y2nF52o/edit" class="download-btn" target="_blank">Open Checklist →</a></div>
+<ul class="features-list">
+<li><strong>24-Hour Before:</strong> Internet, camera, mic, lighting, background tests (50+ items)</li>
+<li><strong>1-Hour Before:</strong> Final tech test, environment prep, materials ready</li>
+<li><strong>During Interview:</strong> Video/audio etiquette, professionalism, troubleshooting</li>
+<li><strong>85+ Interactive Checkboxes:</strong> Check off as you complete each item</li>
+<li><strong>Platform Guides:</strong> Specific instructions for Zoom, Teams, Google Meet</li>
+<li><strong>Common Mistakes:</strong> What goes wrong and how to prevent it</li>
+<li><strong>Quick Reference:</strong> Print-friendly for last-minute review</li>
+</ul>
+</div>
+<div class="deliverable-card">
+<div class="deliverable-header"><div><h3 class="deliverable-title"><span class="deliverable-emoji">⭐</span>STAR Method Answer Templates</h3></div><a href="https://docs.google.com/document/d/114QfLfwZDGwl3fLFflhY28hbKt1xPvc__ZX01dBE-T4/edit" class="download-btn" target="_blank">Open Templates →</a></div>
+<ul class="features-list">
+<li><strong>Complete STAR Guide:</strong> Situation, Task, Action, Result breakdown (20/10/60/10%)</li>
+<li><strong>7 Fillable Story Templates:</strong> Leadership, Conflict, Problem-Solving, Failure, Achievement, Adaptability, Remote Work</li>
+<li><strong>Fill-in-the-Blank Format:</strong> Yellow-highlighted fields for your examples</li>
+<li><strong>Complete Example Story:</strong> Fully filled out to show exact format</li>
+<li><strong>Practice Guide:</strong> How to record yourself, get feedback, improve</li>
+<li><strong>Pro Tips:</strong> Focus on Action (60%), use "I" not "we", quantify results</li>
+<li><strong>Common Mistakes:</strong> What to avoid when using STAR method</li>
+</ul>
+</div>
+<div class="deliverable-card">
+<div class="deliverable-header"><div><h3 class="deliverable-title"><span class="deliverable-emoji">❓</span>Common Interview Questions & Answers</h3></div><a href="https://docs.google.com/document/d/1dxsqdwqAE0q_FbK6E8xozYauyJHzRaNu7ol79z6hNKQ/edit" class="download-btn" target="_blank">Open Q&A Guide →</a></div>
+<ul class="features-list">
+<li><strong>10 General Questions:</strong> Tell me about yourself, Why this job, Strengths, Weaknesses, etc.</li>
+<li><strong>10 Remote-Specific:</strong> Why remote, Productivity, Home office, Communication, Time management</li>
+<li><strong>10+ Behavioral Questions:</strong> Challenges, Conflicts, Leadership, Failure, with STAR references</li>
+<li><strong>Perfect Answer Frameworks:</strong> What to say for each question (100-150 words)</li>
+<li><strong>Real Examples:</strong> Actual answers that worked</li>
+<li><strong>"What NOT to Say":</strong> Common mistakes to avoid (highlighted in red)</li>
+<li><strong>Why Each Works:</strong> What interviewer is looking for</li>
+</ul>
+</div>
+<div class="deliverable-card">
+<div class="deliverable-header"><div><h3 class="deliverable-title"><span class="deliverable-emoji">🎥</span>Virtual Interview Setup Guide</h3></div><a href="https://docs.google.com/document/d/1Og-e3ujc9-YwNB0V_YGmHDxww1cHGdNXMpTyt6fJWRU/edit" class="download-btn" target="_blank">Open Setup Guide →</a></div>
+<ul class="features-list">
+<li><strong>Perfect Camera:</strong> Eye level, 2-3 feet away, straight on, head & shoulders visible</li>
+<li><strong>Perfect Lighting:</strong> Natural window light in front, ring light at 45°, avoid overhead only</li>
+<li><strong>Perfect Background:</strong> Plain wall, bookshelf, organized space—no clutter</li>
+<li><strong>Audio Checklist:</strong> Headphones with mic, no echo, quiet room</li>
+<li><strong>Complete Setup Diagram:</strong> Visual showing ideal home office layout</li>
+<li><strong>Before/After Examples:</strong> Good vs bad setups with explanations</li>
+<li><strong>Budget Options:</strong> How to look professional for under $50</li>
+</ul>
+</div>
+<div class="deliverable-card">
+<div class="deliverable-header"><div><h3 class="deliverable-title"><span class="deliverable-emoji">✉️</span>Post-Interview Follow-Up Templates</h3></div><a href="https://docs.google.com/document/d/1IPFnsZIeeOaBeWUiB_M6sn60a9qWXVT4NzRFsWOt-Ac/edit" class="download-btn" target="_blank">Open Templates →</a></div>
+<ul class="features-list">
+<li><strong>Template #1:</strong> Thank You after Phone/Video Screen (send within 24 hours)</li>
+<li><strong>Template #2:</strong> Thank You after Final Interview (send same day)</li>
+<li><strong>Template #3:</strong> Follow-Up if No Response (1 week after expected decision)</li>
+<li><strong>Template #4:</strong> Offer Acceptance (confirm details, express excitement)</li>
+<li><strong>Template #5:</strong> Offer Decline (gracious exit, keep door open)</li>
+<li><strong>Copy-Paste Ready:</strong> Fill in bracketed [fields], send immediately</li>
+<li><strong>Filled Examples:</strong> See exactly what each should look like</li>
+</ul>
+</div>
+<div class="deliverable-card">
+<div class="deliverable-header"><div><h3 class="deliverable-title"><span class="deliverable-emoji">📅</span>30-Day Interview Prep Plan</h3></div><a href="https://docs.google.com/document/d/1v0ZALDajALGuEy8ReVJ13v-5uawMQtKDgL_7HUedYS0/edit" class="download-btn" target="_blank">Open Prep Plan →</a></div>
+<ul class="features-list">
+<li><strong>Week 1 - Foundation:</strong> Technical setup, write STAR stories, study common questions</li>
+<li><strong>Week 2 - Practice:</strong> Record yourself, improve answers, practice body language</li>
+<li><strong>Week 3 - Polish:</strong> Refine stories, research interviewers, prepare smart questions</li>
+<li><strong>Week 4 - Final Prep:</strong> Final tech tests, review notes, mental preparation</li>
+<li><strong>Daily Tasks:</strong> Each day has specific tasks with checkboxes and time estimates</li>
+<li><strong>Interview Day Schedule:</strong> Minute-by-minute from 2 hours before to after</li>
+<li><strong>Quick Win Checklist:</strong> 10-point readiness assessment before interview</li>
+</ul>
+</div>
+</div>
+<div class="cta-section">
+<h2>🚀 Ready to Ace Your Next Interview?</h2>
+<p>Stop leaving interviews to chance. Start preparing systematically.</p>
+<div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
+<p style="font-size: 1.1rem; margin: 10px 0;"><strong>With This System:</strong></p>
+<p style="font-size: 1.1rem; margin: 10px 0;">✅ Zero technical failures (complete checklist)</p>
+<p style="font-size: 1.1rem; margin: 10px 0;">✅ Structured answers (STAR method for 7 stories)</p>
+<p style="font-size: 1.1rem; margin: 10px 0;">✅ 30+ questions answered (perfect frameworks)</p>
+<p style="font-size: 1.1rem; margin: 10px 0;">✅ Professional setup (look & sound great on video)</p>
+<p style="font-size: 1.1rem; margin: 10px 0;">✅ Follow-up mastery (5 templates ready to send)</p>
+<p style="font-size: 1.3rem; margin: 20px 0; font-weight: bold;">Result: Land offers 3x faster ✨</p>
+</div>
+</div>
+<div class="series-nav">
+<a href="https://shubhammahe888.github.io/remote-ready-day1/" class="nav-btn">Day 1: Resume</a>
+<a href="https://shubhammahe888.github.io/remote-ready-day2/" class="nav-btn">Day 2: LinkedIn</a>
+<a href="https://shubhammahe888.github.io/remote-ready-day3/" class="nav-btn">Day 3: Job Platforms</a>
+<a href="https://shubhammahe888.github.io/remote-ready-day4/" class="nav-btn">Day 4: Skills Gap</a>
+<a href="https://shubhammahe888.github.io/remote-ready-day5/" class="nav-btn">Day 5: Application Strategy</a>
+<a href="#" class="nav-btn active">Day 6: Interview Mastery</a>
+<a href="#" class="nav-btn">Day 7: Coming Soon</a>
+</div>
+<footer>
+<h3>Made by ChillApply</h3>
+<p>Helping job seekers land remote jobs faster with proven strategies and tools</p>
+<div class="social-links">
+<a href="https://instagram.com/chillapply" target="_blank">Instagram: @chillapply</a>
+<a href="https://linkedin.com/company/chillapply" target="_blank">LinkedIn</a>
+</div>
+<p style="margin-top: 30px; font-size: 0.9rem;">Part of the Remote Ready in 7 Days Series | Day 6 of 7</p>
+</footer>
+</div>
 </body>
 </html>
